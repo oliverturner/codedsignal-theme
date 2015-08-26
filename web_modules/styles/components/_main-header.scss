@@ -1,0 +1,91 @@
+// Big cover image on the home page
+.main-header {
+  position:        relative;
+  display:         table;
+  width:           100%;
+  height:          40vh;
+  margin-bottom:   15px;
+  text-align:      center;
+  background:      #222 no-repeat center center;
+  background-size: cover;
+  overflow:        hidden;
+
+  @include breakpoint(500px) {
+    min-height: 240px;
+    height:     60vh;
+    padding:    15% 0;
+  }
+
+  @include breakpoint(900px) {
+    height:        100vh;
+    margin-bottom: 5rem;
+  }
+
+  &.no-cover {
+    height:     30vh;
+    min-height: 160px;
+    max-height: 40vh;
+    background: #f5f8fa;
+
+    &:after {
+      display: none
+    }
+
+    @include breakpoint(900px) {
+
+    }
+  }
+
+  &.post-head {
+    height:     65vh;
+    min-height: 180px;
+  }
+
+  &.no-cover.post-head {
+    height:        85px;
+    min-height:    0;
+    margin-bottom: 0;
+    background:    transparent;
+  }
+
+  &.tag-head {
+    height:     40vh;
+    min-height: 180px;
+  }
+
+  // Put a semi-opaque radial gradient behind the icon to make it more visible
+  // on photos which happen to have a light background.
+  .home-template &:after {
+    display:       block;
+    content:       " ";
+    width:         150px;
+    height:        130px;
+    border-radius: 100%;
+    position:      absolute;
+    bottom:        0;
+    left:          50%;
+    margin-left:   -75px;
+    background:    radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%);
+  }
+
+  /* On page2+ make all the headers smaller */
+  .archive-template & {
+    max-height: 20vh;
+    min-height: 160px;
+    padding:    10% 0;
+
+    &:after {
+      display: none
+    }
+
+    @include breakpoint(900px) {
+      max-height: 30vh;
+    }
+  }
+
+  .inner {
+    width: 80%;
+  }
+
+}
+

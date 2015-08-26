@@ -1,0 +1,236 @@
+/* Every post, on every page, gets this style on its <article> tag */
+.post {
+  position:       relative;
+  width:          80%;
+  max-width:      710px;
+  margin:         4rem auto;
+  padding-bottom: 4rem;
+  border-bottom:  #ebf2f6 1px solid;
+  word-wrap:      break-word;
+
+  // Tweak the .post wrapper style
+  .post-template & {
+    margin-top:     0;
+    border-bottom:  none;
+    padding-bottom: 0;
+  }
+
+  // Add a little circle in the middle of the border-bottom on our .post
+  // just for the lolz and stylepoints.
+  &:after {
+    content:       "";
+    display:       block;
+    position:      absolute;
+    bottom:        -5px;
+    left:          50%;
+    width:         7px;
+    height:        7px;
+    border:        #e7eef2 1px solid;
+    margin-left:   -5px;
+    border-radius: 100%;
+    box-shadow:    #fff 0 0 0 5px;
+    background:    #fff;
+
+    // Kill that stylish little circle that was on the border, too
+    .post-template & {
+      display: none;
+    }
+  }
+
+  // Read-next-story
+  //-----------------------------------------------
+  .read-next-story & {
+    padding-top:    6rem;
+    padding-bottom: 6rem;
+
+    &:before {
+      content:        "Read This Next";
+      padding:        4px 10px 5px;
+      text-transform: uppercase;
+      font-size:      1.1rem;
+      font-family:    "Open Sans", sans-serif;
+      color:          rgba(255, 255, 255, 0.8);
+      border:         rgba(255, 255, 255, 0.5) 1px solid;
+      border-radius:  4px;
+      transition:     all 0.5s ease;
+
+      .prev & {
+        content: "You Might Enjoy";
+      }
+    }
+  }
+
+  .read-next-story:hover & {
+    &:before {
+      color:      #222;
+      background: #fff;
+      transition: all 0.2s ease;
+    }
+  }
+
+  .read-next-story.no-cover & {
+    &:before {
+      color:        rgba(0, 0, 0, 0.5);
+      border-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+.post-title {
+  body:not(.post-template) & {
+    font-size: 3.6rem;
+  }
+
+  .post-template & {
+    margin-bottom: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.post-excerpt {
+  p {
+    margin:      0;
+    font-size:   0.9em;
+    line-height: 1.7em;
+  }
+}
+
+/* Keep images centered, and allow images wider than the main
+   text column to break out. */
+.post-content {
+  img {
+    transform:         translateX(-50%);
+
+    display:           block;
+    max-width:         126%;
+    height:            auto;
+    padding:           0.6em 0;
+    /* Centers an image by (1) pushing its left edge to the
+       center of its container and (2) shifting the entire image
+       in the opposite direction by half its own width.
+       Works for images that are larger than their containers. */
+    position:          relative;
+    left:              50%;
+  }
+}
+
+.post-meta {
+  display:     block;
+  margin:      1.75rem 0 0 0;
+  font-family: "Open Sans", sans-serif;
+  font-size:   1.5rem;
+  line-height: 2.2rem;
+  color:       #9eabb3;
+
+  .post-template & {
+    margin: 0;
+  }
+
+  a {
+    color:           #9eabb3;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.post-header {
+
+  .post-template & {
+    margin-bottom: 3.4rem;
+  }
+}
+
+/* The author credit area after the post */
+.post-footer {
+  position:   relative;
+  margin:     6rem 0 0 0;
+  padding:    6rem 0 0 0;
+  border-top: #ebf2f6 1px solid;
+
+  h4 {
+    font-size: 1.8rem;
+    margin:    0;
+
+    a {
+      color:           #2e2e2e;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  p {
+    margin:      1rem 0;
+    font-size:   1.4rem;
+    line-height: 1.75em;
+  }
+
+  /* Drop the share links in the space to the right.
+     Doing it like this means it's easier for the author bio
+     to be flexible at smaller screen sizes while the share
+     links remain at a fixed width the whole time */
+
+  .share {
+    position: absolute;
+    top:      6rem;
+    right:    0;
+    width:    140px;
+
+    a {
+      font-size:       1.8rem;
+      display:         inline-block;
+      margin:          1rem 1.6rem 1.6rem 0;
+      color:           #bbc7cc;
+      text-decoration: none;
+    }
+
+    .icon-twitter:hover {
+      color: #55acee;
+    }
+
+    .icon-facebook:hover {
+      color: #3b5998;
+    }
+
+    .icon-google-plus:hover {
+      color: #dd4b39;
+    }
+  }
+}
+
+.post-date {
+  display:        inline-block;
+  margin-left:    8px;
+  padding-left:   12px;
+  border-left:    #d5dbde 1px solid;
+  text-transform: uppercase;
+  font-size:      1.3rem;
+  white-space:    nowrap;
+
+  .post-template & {
+    padding: 0;
+    margin:  0;
+    border:  none;
+  }
+}
+
+.read-more {
+  text-decoration: none;
+}
+
+/* Stop elements, such as img wider than the post content, from
+   creating horizontal scroll - slight hack due to imperfections
+   with browser width % calculations and rounding */
+.content {
+  .post-template & {
+    overflow: hidden;
+  }
+}

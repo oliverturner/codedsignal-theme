@@ -1,0 +1,14 @@
+/* Appears in the top left corner of your home page */
+.blog-logo {
+  display:    block;
+  float:      left;
+  background: none !important; /* Makes sure there is never a background */
+  border:     none !important; /* Makes sure there is never a border */
+
+  img {
+    display: block;
+    height:  38px;
+    padding: 1px 0 5px 0;
+    width:   auto;
+  }
+}

@@ -1,0 +1,124 @@
+.subscribe-button {
+  transition:      all ease 0.3s;
+  display:         block;
+  position:        absolute;
+  bottom:          30px;
+  left:            30px;
+  right:           30px;
+  height:          38px;
+  padding:         0 20px;
+  color:           #111 !important; /* Overides `.nav a:link, .nav a:visited` colour */
+  text-align:      center;
+  font-size:       12px;
+  font-family:     "Open Sans", sans-serif;
+  text-transform:  uppercase;
+  text-decoration: none;
+  line-height:     35px;
+  border-radius:   3px;
+  background:      #fff;
+
+  &:before {
+    font-size:    9px;
+    margin-right: 6px;
+  }
+}
+
+/* Create a bouncing scroll-down arrow on homepage with cover image */
+.scroll-down {
+  transform:       rotate(-90deg);
+  animation:       bounce 4s 2s infinite;
+
+  display:         block;
+  position:        absolute;
+  bottom:          45px;
+  left:            50%;
+  width:           34px;
+  height:          34px;
+  margin-left:     -16px;
+  font-size:       34px;
+  text-align:      center;
+  text-decoration: none;
+  color:           rgba(255, 255, 255, 0.7);
+  z-index:         100;
+
+  // Stop it bouncing and increase contrast when hovered
+  &:hover {
+    color:     #fff;
+    animation: none;
+  }
+
+  .archive-template & {
+    display: none
+  }
+}
+
+.menu-button {
+  transition:     all 0.5s ease;
+
+  display:        inline-block;
+  float:          right;
+  height:         38px;
+  padding:        0 15px;
+  border-style:   solid;
+  border-width:   1px;
+  opacity:        1;
+  text-align:     center;
+  font-size:      12px;
+  text-transform: uppercase;
+  line-height:    35px;
+  white-space:    nowrap;
+  border-radius:  3px;
+
+  &:hover {
+    background: #fff;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:before {
+    font-size:    12px;
+    font-weight:  bold;
+    margin-right: 6px;
+    position:     relative;
+    top:          1px;
+  }
+
+  // When the navigation is closed
+  .nav-closed & {
+    border-color: rgba(255, 255, 255, 0.6);
+    color:        #fff;
+
+    &:hover {
+      color: #222;
+    }
+
+    // When the navigation is closed and there is no cover image
+    .no-cover & {
+      border-color: #bfc8cd;
+      color:        #9eabb3;
+
+      &:hover {
+        border-color: #555;
+        color:        #555;
+      }
+    }
+  }
+
+  // When the navigation is opened
+  .nav-opened & {
+    transform:    translate3D(94px, 0, 0);
+    transition:   all 0.3s ease;
+
+    padding:      0 12px;
+    border-color: #111;
+    background:   #111;
+    color:        #fff;
+
+    .word {
+      transition: all 0.3s ease;
+      opacity:    0;
+    }
+  }
+}

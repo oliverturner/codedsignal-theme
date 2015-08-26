@@ -1,0 +1,22 @@
+/* Github */
+.gist {
+  table {
+    margin:    0;
+    font-size: 1.4rem;
+  }
+
+  td {
+    line-height: 1.4;
+  }
+
+  .line-number {
+    min-width: 25px;
+  }
+}
+
+/* Pastebin */
+.embedPastebin {
+  .content & {
+    margin-bottom: 1.75em;
+  }
+}
